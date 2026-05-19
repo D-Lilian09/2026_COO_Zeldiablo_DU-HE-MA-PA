@@ -1,17 +1,17 @@
 # Fonctionnalités prévues version 1
 
-- fonctionnalité 1 : nom
-  - descriptif texte : [...]
+- fonctionnalité 1 : se déplacer
+  - descriptif texte : se déplacer avec ZQSD et les fleches directionnelles 
   - critères de validation :
-    - critère 1 [...]
-    - critère 2 [...]
+    - critère 1 case vide
+    - critère 2 touche pressé
   - responsables : [...]
 
-- fonctionnalité 2 : nom
-  - descriptif texte : [...]
+- fonctionnalité 2 : attaquer
+  - descriptif texte : attaquer les ennemis 
   - critères de validation :
-    - critère 1 [...]
-    - critère 2 [...]
+    - critère 1 ennemi present dans la case adjacente 
+    - critère 2 touche pressé
   - responsables : [...]
 
 [....]
