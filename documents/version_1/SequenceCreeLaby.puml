@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant "jeu:Jeu" as jeu
+
+create participant "laby:Labyrinthe" as laby
+jeu -> laby : new Labyrinthe(100,100)
+activate laby
+laby --> jeu : instance créée
+deactivate laby
+
+create participant "perso:Personnage" as perso
+jeu -> perso: new Personnage(10,10)
+activate perso
+perso --> jeu : instance créée
+deactivate perso
+
+@enduml

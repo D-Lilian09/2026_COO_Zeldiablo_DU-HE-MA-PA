@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant "jeu:JeuZeldiablo" as J
+participant "c:Commande" as C
+participant "perso:Personnage" as P
+participant "laby:Labyrinthe" as L
+
+[-> J : evoluer(c)
+activate J
+
+    J -> C : gauche
+    activate C
+    C --> J : boolean
+    deactivate C
+
+    group Si commande détectée
+        J -> P : getPosition()
+        activate P
+        P --> J : int[] {0, x, y}
+        deactivate P
+
+
+        J -> L : etreMur(nx, ny)
+        activate L
+        L --> J : estUnMur (boolean)
+        deactivate L
+
+        alt !estUnMur
+            J -> P : // setX(nx) / setY(ny) //
+        end
+    end
+
+[<-- J : fin evolution
+deactivate J
+@enduml
+
+
