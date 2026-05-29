@@ -1,6 +1,7 @@
+package zeldiablo;
 
 public class Jeu {
-
+/*
     public static final String HAUT = "Haut";
     public static final String BAS = "Bas";
     public static final String GAUCHE = "Gauche";
@@ -61,5 +62,5 @@ public class Jeu {
         return new int[]{proX, proY};
     }
 
-
+*/
 }

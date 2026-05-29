@@ -1,3 +1,5 @@
+package zeldiablo;
+
 public class Labyrinthe {
     public static final char Mur = '#';
     public static final char Vide = ' ';

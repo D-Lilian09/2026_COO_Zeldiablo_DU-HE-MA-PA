@@ -32,8 +32,8 @@ class Labyrinthe {
 
 }
 
-Jeu"1" <- "1" Personnage : - hero
-Jeu"1" <- "1" Labyrinthe : - laby
+Jeu"1" -> "1" Personnage : - hero
+Jeu"1" -> "1" Labyrinthe : - laby
 
 
 @enduml
