@@ -3,16 +3,16 @@
 ## Membres du groupe
 
 Liste des membres du projet :
-- Prenom Nom adresse@etu.univ-lorraine
-- Prenom Nom adresse@etu.univ-lorraine
-- Prenom Nom adresse@etu.univ-lorraine
-- Prenom Nom adresse@etu.univ-lorraine
+- Lilian Dubicq adresse@etu.univ-lorraine
+- Kevin Pasho adresse@etu.univ-lorraine
+- Théo Mathiot adresse@etu.univ-lorraine
+- Kayis Hellouane esse@etu.univ-lorraine
 
 Liste des adresses mail
-adresse@etu.univ-lorraine
-adresse@etu.univ-lorraine
-adresse@etu.univ-lorraine
-adresse@etu.univ-lorraine
+e71384u@etu.univ-lorraine.fr
+e44577u@etu.univ-lorraine.fr
+e85372u@etu.univ-lorraine.fr
+e96551u@etu.univ-lorraine.fr
 
 ## Etat du projet
 
