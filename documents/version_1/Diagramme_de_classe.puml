@@ -1,0 +1,43 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Personnage{
+    - hp : double
+    - dgt: double
+    - x : int
+    - y : int
+
+    + Personnage(double, String, double)
+    + retirerHp(double)
+    + getHp() : Double
+    + getX(): int
+    + getY(): int
+    + getDgt() : Double
+}
+
+class Jeu{
+    {static} - HAUT : String
+    {static} - BAS : String
+    {static} - DROIT : String
+    {static} - GAUCHE : String
+    - hero : Personnage
+    - laby : Labyrinthe
+
+    + Jeu(Labyrinthe,Personnage)
+    + déplacer(String)
+    + getSuivant() : int[]
+
+}
+
+class Labyrinthe {
+    {static} -MUR : String
+    mur boolean[][]
+
+    Labyrinthe(int x, int y)
+    etreMur(int x, int y)
+    
+
+}
+
+
+@enduml
