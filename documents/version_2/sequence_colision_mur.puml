@@ -1,0 +1,52 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+title 1.2 - Collision avec les Murs
+
+participant "jeu:JeuZeldiablo" as J
+participant "c:Commande" as C
+participant "perso:Personnage" as P
+participant "laby:Labyrinthe" as L
+
+[-> J : evoluer(c)
+activate J
+
+    ' --- Lecture de la direction demandee par le joueur ---
+    J -> C : gauche / droite / haut / bas
+    activate C
+    C --> J : boolean
+    deactivate C
+
+    group Pour la direction detectee (gauche, droite, haut ou bas)
+
+        J -> J : seDeplacer(direction)
+        activate J
+
+            ' --- Position actuelle du personnage ---
+            J -> P : getPosition()
+            activate P
+            P --> J : int[] {x, y}
+            deactivate P
+
+
+
+            ' --- Test de collision : la case cible est-elle un mur ? ---
+            J -> L : etreMur(nx, ny)
+            activate L
+            L --> J : estMur (boolean)
+            deactivate L
+
+            alt estMur == false (case vide)
+                J -> P : setPosition(nx, ny)
+                activate P
+                P --> J
+                deactivate P
+
+
+        deactivate J
+    end
+
+[<-- J : fin evolution
+deactivate J
+
+
+@enduml
