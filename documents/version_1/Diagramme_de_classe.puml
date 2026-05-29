@@ -35,7 +35,7 @@ class Labyrinthe {
 
     Labyrinthe(int x, int y)
     etreMur(int x, int y)
-    
+
 
 }
 
