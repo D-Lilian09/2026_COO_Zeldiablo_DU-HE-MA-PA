@@ -14,9 +14,9 @@ public class JeuZeldiablo implements Jeu {
         if (c.droite)
             x++;
         if (c.haut)
-            y++;
-        if (c.bas)
             y--;
+        if (c.bas)
+            y++;
 
         mx ++;
         if (mx>10)
