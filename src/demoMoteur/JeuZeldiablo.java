@@ -10,13 +10,13 @@ public class JeuZeldiablo implements Jeu {
 
     public void evoluer (Commande c){
         if (c.gauche)
-            x--;
+            this.seDeplacer("gauche");
         if (c.droite)
-            x++;
+            this.seDeplacer("droite");
         if (c.haut)
-            y++;
+            this.seDeplacer("haut");
         if (c.bas)
-            y--;
+            this.seDeplacer("bas");
 
         mx ++;
         if (mx>10)
