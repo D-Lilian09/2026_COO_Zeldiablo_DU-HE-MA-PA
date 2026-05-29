@@ -9,6 +9,6 @@ public class MainDemo {
         DessinZeldiablo dessin = new DessinZeldiablo(demo);
 
         MoteurGraphique mg = new MoteurGraphique(demo,dessin);
-        mg.lancerJeu(800,800);
+        mg.lancerJeu(1000,700);
     }
 }

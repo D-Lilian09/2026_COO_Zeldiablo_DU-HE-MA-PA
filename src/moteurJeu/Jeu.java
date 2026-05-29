@@ -1,5 +1,7 @@
 package moteurJeu;
 
+import zeldiablo.Labyrinthe;
+
 /**
  * represente un jeu un jeu est caracterise par la methode evoluer a redefinir
  * 
@@ -14,7 +16,7 @@ public interface Jeu {
 	 * @param commandeUser
 	 *            commande utilisateur
 	 */
-	public void evoluer(Commande commandeUser);
+	public void evoluer(Commande commandeUser, Labyrinthe l);
 	
 	/**
 	 * @return true si et seulement si le jeu est fini

@@ -22,22 +22,31 @@ public  class Personnage {
         this.y = y;
     }
 
-    public void seDeplacer(String x){
+    public void seDeplacer(String x,Labyrinthe l){
         int[] pos = this.getPosition();
-        if(x == "haut"){
+        if(x.equals("haut")){
             pos[1] -= 1;
-            if (estMur == false){
+            if (l.etreLimite(pos[0],pos[1])){
                 this.setPosition(pos[0] , pos[1]);
             }
         }
-        if(x == "bas"){
+        if(x.equals("bas")){
             pos[1] += 1;
+            if (l.etreLimite(pos[0],pos[1])){
+                this.setPosition(pos[0] , pos[1]);
+            }
         }
-        if(x == "droite"){
+        if(x.equals("droite")){
             pos[0] += 1;
+            if (l.etreLimite(pos[0],pos[1])){
+                this.setPosition(pos[0] , pos[1]);
+            }
         }
-        if(x == "gauche"){
+        if(x.equals("gauche")){
             pos[0] -= 1;
+            if (l.etreLimite(pos[0],pos[1])){
+                this.setPosition(pos[0] , pos[1]);
+            }
         }
     }
 }

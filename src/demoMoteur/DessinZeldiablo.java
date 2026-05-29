@@ -17,8 +17,9 @@ public class DessinZeldiablo implements DessinJeu {
     @Override
     public void dessiner(BufferedImage image) {
         Graphics g = image.getGraphics();
+        int[] pos = jeu.perso.getPosition();
         g.setColor(Color.BLUE);
-        g.fillRect(jeu.x*TAILLE, jeu.y*TAILLE, TAILLE, TAILLE);
+        g.fillRect(pos[0] * TAILLE, pos[1] * TAILLE, TAILLE, TAILLE);
         g.setColor(Color.RED);
         g.fillRect(jeu.mx*TAILLE, TAILLE, TAILLE, TAILLE);
     }
