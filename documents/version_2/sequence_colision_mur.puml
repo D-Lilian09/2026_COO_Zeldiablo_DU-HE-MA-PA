@@ -1,5 +1,4 @@
 @startuml
-'https://plantuml.com/sequence-diagram
 title 1.2 - Collision avec les Murs
 
 participant "jeu:JeuZeldiablo" as J
