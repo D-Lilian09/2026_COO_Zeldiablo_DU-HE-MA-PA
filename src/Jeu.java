@@ -7,9 +7,9 @@ public class Jeu {
     public static final String DROITE = "Droite";
 
     private Labyrinthe laby;
-    private Perso perso;
+    private Personnage perso;
 
-    public Jeu(Labyrinthe laby, Perso perso) {
+    public Jeu(Labyrinthe laby, Personnage perso) {
         this.laby = laby;
         this.perso = perso;
     }
@@ -27,27 +27,10 @@ public class Jeu {
         if (this.laby.etreMur(nx, ny)) {
             return;
         }
-        Element caissePoussee = this.caisses.getElement(nx, ny);
-
-        if (caissePoussee != null) {
-            int[] nextC = getSuivant(nx, ny, action);
-            int nnx = nextC[0];
-            int nny = nextC[1];
-
-            if (!this.laby.etreMur(nnx, nny) && this.caisses.getElement(nnx, nny) == null) {
-                this.caisses.getListe().remove(caissePoussee);
-                this.caisses.ajoutElement(new Caisse(nnx, nny));
-                this.perso = new Perso(nx, ny);
-            }
-        }
-
-        else {
-            this.perso = new Perso(nx, ny);
-        }
     }
 
     public Labyrinthe getLaby() { return laby; }
-    public Perso getPerso() { return perso; }
+    public Personnage getPerso() { return perso; }
 
     public char getChar(int x, int y) {
         if (this.laby.etreMur(x, y)) {
