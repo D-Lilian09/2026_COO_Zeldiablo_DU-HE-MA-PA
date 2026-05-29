@@ -7,11 +7,11 @@
     - critère 2 touche pressé
   - responsables : [...]
 
-- fonctionnalité 2 : attaquer
-  - descriptif texte : attaquer les ennemis 
+- fonctionnalité 2 : retirer hp
+  - descriptif texte : retirer les hp du personnage
   - critères de validation :
-    - critère 1 ennemi present dans la case adjacente 
-    - critère 2 touche pressé
+    - critère 1 le personnage est en vie
+    - critère 2 l'evenement qui retire les hp est passé
   - responsables : [...]
 
 [....]
