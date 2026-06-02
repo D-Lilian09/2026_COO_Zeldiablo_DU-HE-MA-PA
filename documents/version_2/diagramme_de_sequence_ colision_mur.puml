@@ -18,7 +18,7 @@ perso -> laby : etreLimite(x, y)
 laby --> perso : true
 
 perso -> laby : etreMur(x, y)
-laby --> perso : false
+laby --> perso : true
 
 perso -> perso : setPosition(x, y)
 
