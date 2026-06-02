@@ -5,14 +5,20 @@ import moteurJeu.Jeu;
 import zeldiablo.Labyrinthe;
 import zeldiablo.Personnage;
 
+import java.io.IOException;
+
 public class JeuZeldiablo implements Jeu {
     Personnage perso;
     int mx = 1;
     Labyrinthe l;
 
     public JeuZeldiablo() {
-        this.l = new Labyrinthe(1000,700); // À adapter selon les paramètres de votre constructeur Labyrinthe
-        this.perso = new Personnage(1, 1); // À adapter selon les paramètres de votre constructeur Personnage (ex: coordonnées x=1, y=1)
+        try {
+            this.l = Labyrinthe.chargerFichier("Ressource/labyrinthe1.txt");
+        } catch (IOException e) {
+            this.l = new Labyrinthe(1500, 800);
+        }
+        this.perso = new Personnage(1, 1); //spawn du perso
     }
 
     public void evoluer (Commande c, Labyrinthe l){

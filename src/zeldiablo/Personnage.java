@@ -26,25 +26,25 @@ public  class Personnage {
         int[] pos = this.getPosition();
         if(x.equals("haut")){
             pos[1] -= 1;
-            if (l.etreLimite(pos[0],pos[1])){
+            if (l.etreLimite(pos[0],pos[1]) && !l.etreMur(pos[0],pos[1])){
                 this.setPosition(pos[0] , pos[1]);
             }
         }
         if(x.equals("bas")){
             pos[1] += 1;
-            if (l.etreLimite(pos[0],pos[1])){
+            if (l.etreLimite(pos[0],pos[1])&& !l.etreMur(pos[0],pos[1])){
                 this.setPosition(pos[0] , pos[1]);
             }
         }
         if(x.equals("droite")){
             pos[0] += 1;
-            if (l.etreLimite(pos[0],pos[1])){
+            if (l.etreLimite(pos[0],pos[1])&& !l.etreMur(pos[0],pos[1])){
                 this.setPosition(pos[0] , pos[1]);
             }
         }
         if(x.equals("gauche")){
             pos[0] -= 1;
-            if (l.etreLimite(pos[0],pos[1])){
+            if (l.etreLimite(pos[0],pos[1])&& !l.etreMur(pos[0],pos[1])){
                 this.setPosition(pos[0] , pos[1]);
             }
         }
