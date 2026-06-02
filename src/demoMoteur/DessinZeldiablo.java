@@ -60,6 +60,6 @@ public class DessinZeldiablo implements DessinJeu {
         
         // Dessiner l'élément rouge
         g.setColor(Color.RED);
-        g.fillRect(jeu.mx*TAILLE, TAILLE, TAILLE, TAILLE);
+        g.fillRect(jeu.ennemies[i]*TAILLE, TAILLE, TAILLE, TAILLE);
     }
 }
