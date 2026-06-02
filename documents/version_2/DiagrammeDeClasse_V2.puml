@@ -1,0 +1,39 @@
+@startuml
+
+class Personnage{
+
+    - x : int
+    - y : int
+
+    + Personnage(int x, int y)
+    + getPosition() : int[]
+    + setPosition()
+    + seDeplacer()
+}
+
+class Labyrinthe {
+    - largeur : int
+    - hauteur : int
+    - mur boolean[][]
+
+    + Labyrinthe(int x, int y)
+    {static} + chargerFichier(String chemin): Labyrinthe
+    + etreLimite(int x, int y)
+    + etreMur(int x, int y)
+    + getLargeur()
+    + getHauteur()
+}
+class JeuZeldiablo{
+
+    + jeuZeldiablo()
+    + evoluer(Commande c, Labyrinthe l)
+    + etreFini() : boolean
+    + getLabyrinthe() : Labyrinthe
+}
+
+
+
+JeuZeldiablo"1" -> "1" Personnage : - perso
+JeuZeldiablo"1" -> "1" Labyrinthe : - l
+
+@enduml

@@ -1,0 +1,56 @@
+@startuml
+title -Création d'un labyrinthe par défaut
+
+create participant ":Labyrinthe" as laby
+
+[-> laby : chargerFichier(chemin)
+activate laby
+
+create participant ":BufferedReader" as lecteur
+laby -> lecteur : new BufferedReader()
+activate lecteur
+lecteur --> laby : instance créée
+deactivate lecteur
+
+create participant ":ArrayList<String>" as lignes
+laby -> lignes : new ArrayList<String>
+activate lignes
+lignes --> laby : instance créée
+deactivate lignes
+
+laby -> lecteur : readLine()
+activate lecteur
+lecteur --> laby : ligne
+deactivate lecteur
+
+laby -> lignes : add(ligne)
+activate lignes
+lignes --> laby : ligne ajouter
+deactivate lignes
+
+laby -> lecteur : close()
+activate lecteur
+lecteur --> laby : lecteur fermer
+deactivate lecteur
+
+laby -> lignes : size()
+activate lignes
+lignes --> laby : int hauteur
+deactivate lignes
+
+laby -> lignes : get[0].length()
+activate lignes
+lignes --> laby : int largeur
+deactivate lignes
+
+laby -> laby : new Labyrinthe(largeur * 50, hauteur * 50)
+
+laby -> lignes : get(y).charAt(x)
+activate lignes
+lignes --> laby : char c
+deactivate lignes
+
+[<--laby : laby
+
+deactivate laby
+@enduml
