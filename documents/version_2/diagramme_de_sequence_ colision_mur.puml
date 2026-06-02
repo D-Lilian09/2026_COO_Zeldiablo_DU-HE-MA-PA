@@ -1,6 +1,7 @@
 @startuml
 title Collision avec les murs — cas simple (déplacement réussi vers la droite)
 
+actor Controleur as ctrl
 participant ":JeuZeldiablo" as jeu
 participant ":Personnage" as perso
 participant ":Labyrinthe" as laby
@@ -12,21 +13,15 @@ jeu -> perso : seDeplacer("droite", l)
 activate perso
 
 perso -> perso : getPosition()
-activate perso
-return pos
 
 
 perso -> laby : etreLimite(x, y)
-activate laby
-return true
+laby --> perso : true
 
 perso -> laby : etreMur(x, y)
-activate laby
-return false
+laby --> perso : false
 
 perso -> perso : setPosition(x, y)
-activate perso
-return
 
 perso --> jeu : déplacement validé
 deactivate perso
