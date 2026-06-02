@@ -1,0 +1,16 @@
+@startuml
+title Fin de partie — cas simple (etreFini() renvoie true)
+
+participant ":Main" as main
+participant ":MoteurGraphique" as moteur
+participant ":JeuZeldiablo" as jeu
+
+main -> moteur : lancerJeu(w, h)
+activate moteur
+
+moteur -> jeu : etreFini()
+jeu --> moteur : true
+
+moteur --> main : jeu terminé
+deactivate moteur
+@enduml
