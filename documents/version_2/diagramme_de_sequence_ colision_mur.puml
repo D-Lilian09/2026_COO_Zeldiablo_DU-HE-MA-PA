@@ -1,0 +1,37 @@
+@startuml
+title 1.2 - Collision avec les Murs
+
+participant "jeu:JeuZeldiablo" as J
+participant "c:Commande" as C
+participant "perso:Personnage" as P
+participant "laby:Labyrinthe" as L
+
+[-> J : evoluer(c)
+activate J
+    J -> C : gauche / droite / haut / bas
+    activate C
+    C --> J : boolean
+    deactivate C
+    group Pour la direction detectee (gauche, droite, haut ou bas)
+        J -> P : seDeplacer(direction, laby)
+        activate P
+            P -> P : getPosition()
+            activate P
+            P --> P : int[] {x, y}
+            deactivate P
+            P -> L : etreMur(nx, ny)
+            activate L
+            L --> P : estMur (boolean)
+            deactivate L
+            alt estMur == false (case vide)
+                P -> P : setPosition(nx, ny)
+                activate P
+                P --> P
+                deactivate P
+        deactivate P
+    end
+[<-- J : fin evolution
+deactivate J
+
+
+@enduml
