@@ -1,27 +1,56 @@
 @startuml
-'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
+class Personnage{
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
+    - x : int
+    - y : int
 
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+    + Personnage(int x, int y)
+    + getPosition() : int[]
+    + setPosition()
+    + seDeplacer()
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class Labyrinthe {
+    - largeur : int
+    - hauteur : int
+    - mur boolean[][]
+
+    + Labyrinthe(int x, int y)
+    {static} + chargerFichier(String chemin): Labyrinthe
+    + etreLimite(int x, int y)
+    + etreMur(int x, int y)
+    + getLargeur()
+    + getHauteur()
+    + etreCaseFin(int x, int y):boolean
 }
+class JeuZeldiablo{
+
+    + jeuZeldiablo()
+    + evoluer(Commande c, Labyrinthe l)
+    + etreFini() : boolean
+    + getLabyrinthe() : Labyrinthe
+}
+
+class Ennemie{
+    - x : int
+    - y : int
+    - xFin : int
+    - yFin : int
+    - xDeb : int
+    - yDeb : int
+
+    + Ennemie(int x, int y, int xf,int yf, int xd, int yd)
+    + seDeplacerH()
+    + seDeplacerV()
+    + finPaterne() : boolean
+    + reset()
+
+}
+
+
+JeuZeldiablo"1" -> "1" Personnage : - perso
+JeuZeldiablo"1" -> "1" Labyrinthe : - l
+Personnage"1 " ->  "1" Ennemie
 
 @enduml
