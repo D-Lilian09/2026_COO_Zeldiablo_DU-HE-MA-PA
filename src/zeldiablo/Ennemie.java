@@ -3,8 +3,6 @@ package zeldiablo;
 
 public class Ennemie extends Personnage {
 
-        private int x;
-        private int y;
         private int xFin;
         private int yFin;
         private int xDeb;
@@ -15,15 +13,26 @@ public class Ennemie extends Personnage {
         super(x, y);
         this.xFin = xf;
         this.yFin = yf;
-        this.xFin = xd;
-        this.yFin = yd;
+        this.xDeb = xd;
+        this.yDeb = yd;
     }
 
-    public void seDeplacerH() { x++;}
+    public void seDeplacerH() {
+        int[] pos = getPosition();
+        setPosition(pos[0] + 1, pos[1]);
+    }
 
-    public void seDeplacerV() { y++;}
+    public void seDeplacerV() {
+        int[] pos = getPosition();
+        setPosition(pos[0], pos[1] + 1);
+    }
 
-    public boolean finPaterne() { return (x == xFin && y == yFin) ; }
+    public boolean finPaterne() {
+        int[] pos = getPosition();
+        return (pos[0] == xFin && pos[1] == yFin);
+    }
 
-    public void reset() { x = xDeb; y = yDeb;}
+    public void reset() {
+        setPosition(xDeb, yDeb);
+    }
 }

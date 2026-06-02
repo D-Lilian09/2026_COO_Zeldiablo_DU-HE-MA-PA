@@ -1,6 +1,7 @@
 package demoMoteur;
 
 import moteurJeu.DessinJeu;
+import zeldiablo.Ennemie;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -49,17 +50,24 @@ public class DessinZeldiablo implements DessinJeu {
                         g.setColor(Color.GREEN);
                         g.fillRect(x * TAILLE, y * TAILLE, TAILLE, TAILLE);
                     }
+                } else {
+                    // Dessiner les cases vides en blanc
+                    g.setColor(Color.WHITE);
+                    g.fillRect(x * TAILLE, y * TAILLE, TAILLE, TAILLE);
                 }
             }
         }
         
+        // Dessiner les ennemis
+        g.setColor(Color.RED);
+        for (Ennemie e : jeu.getEnnemies()) {
+            int[] posE = e.getPosition();
+            g.fillRect(posE[0] * TAILLE, posE[1] * TAILLE, TAILLE, TAILLE);
+        }
+
         // Dessiner le personnage
         int[] pos = jeu.perso.getPosition();
         g.setColor(Color.BLUE);
         g.fillRect(pos[0] * TAILLE, pos[1] * TAILLE, TAILLE, TAILLE);
-        
-        // Dessiner l'élément rouge
-        g.setColor(Color.RED);
-        g.fillRect(jeu.ennemies[i]*TAILLE, TAILLE, TAILLE, TAILLE);
     }
 }
