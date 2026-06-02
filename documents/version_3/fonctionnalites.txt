@@ -1,0 +1,29 @@
+# Fonctionnalités prévues version
+
+- fonctionnalité 1 : 6.1
+  - descriptif texte : Fin du jeu : mort du héros
+  - critères de validation :
+    - critère 1: Le héros par défaut dispose de 5 points de vie
+    - critère 2: Chaque monstre fait 1 point de dégât lorsque le héros se fait attaquer
+    -critère 3: Quand le héros meurt, un message de fin est affiché é sur la console et le jeu s'arrête
+  - responsables : Kayis et Kevin
+
+
+  - fonctionnalité 2 :
+    - descriptif texte : Fin du jeu : le héro arrive sur la case de fin
+    - critères de validation :
+      - critère 1: Le héro doit bien arriver sur la case de fin défini
+    - responsables : Kayis et Kevin
+
+
+- fonctionnalité 3 :
+  - descriptif texte : Le héro respawn si il y a un contact avec le carré rouge
+  - critères de validation :
+    - critère 1:  un contact avec le carré rouge nous fait respawn
+  - responsables : Lilian et Théo
+
+[....]
+
+# Bilan
+
+- Quelles fonctionnalités est validée ?
