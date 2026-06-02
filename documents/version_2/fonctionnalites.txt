@@ -1,21 +1,22 @@
 # Fonctionnalités prévues version 2
 
-- fonctionnalité 1 : nom
-  - descriptif texte : [...]
+- fonctionnalité 1 : création d'un labyrinthe par defaut
+  - descriptif texte : création d'un labyrinthe par defaut à l'aide de fichier txt ou les " " représente une case libre et les "#" une case mur
   - critères de validation :
-    - critère 1 [...]
-    - critère 2 [...]
-  - responsables : [...]
+    - critère 1 avoir un fichier txt représentant un labyrinthe
+    - critère 2 definir un constructeur de labyrinthe a partir d'un fichier txt'
+  - responsables : Kayis et kevin
 
-- fonctionnalité 2 : nom
-  - descriptif texte : [...]
+- fonctionnalité 2 : gestions des collisions et de la texture avec les murs
+  - descriptif texte : verivication a chaque déplacement si la case est libre ou non et ajout d'un fichier png mur
   - critères de validation :
-    - critère 1 [...]
-    - critère 2 [...]
-  - responsables : [...]
+    - critère 1 creer un fonction estMur() qui permet de verifier si une case est un mur
+    - critère 2 modifier la fonction se déplacer pour verif si c'est un mur
+  - responsables : Lilian et Theo
 
 [....]
 
 # Bilan
 
 - Quelles fonctionnalités est validée ?
+les 2
