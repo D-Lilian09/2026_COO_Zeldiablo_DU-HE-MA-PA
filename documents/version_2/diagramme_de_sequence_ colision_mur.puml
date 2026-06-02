@@ -1,12 +1,11 @@
 @startuml
 title Collision avec les murs — cas simple (déplacement réussi vers la droite)
 
-actor Controleur as ctrl
 participant ":JeuZeldiablo" as jeu
 participant ":Personnage" as perso
 participant ":Labyrinthe" as laby
 
-ctrl -> jeu : evoluer(c, l)
+
 activate jeu
 
 jeu -> perso : seDeplacer("droite", l)
