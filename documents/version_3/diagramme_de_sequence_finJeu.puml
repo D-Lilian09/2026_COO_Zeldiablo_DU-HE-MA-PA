@@ -1,16 +1,20 @@
 @startuml
-title Fin de partie — cas simple (etreFini() renvoie true)
+title etreFini() — le perso est sur la case de fin
 
-participant ":Main" as main
 participant ":MoteurGraphique" as moteur
 participant ":JeuZeldiablo" as jeu
-
-main -> moteur : lancerJeu(w, h)
-activate moteur
+participant ":Personnage" as perso
+participant ":Labyrinthe" as laby
 
 moteur -> jeu : etreFini()
-jeu --> moteur : true
+activate jeu
 
-moteur --> main : jeu terminé
-deactivate moteur
+jeu -> perso : getPosition()
+perso --> jeu : pos
+
+jeu -> laby : etreCaseFin(x, y)
+laby --> jeu : true
+
+jeu --> moteur : true (jeu fini)
+deactivate jeu
 @enduml
