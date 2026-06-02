@@ -1,37 +1,35 @@
 @startuml
-title 1.2 - Collision avec les Murs
+title Collision avec les murs — cas simple (déplacement réussi vers la droite)
 
-participant "jeu:JeuZeldiablo" as J
-participant "c:Commande" as C
-participant "perso:Personnage" as P
-participant "laby:Labyrinthe" as L
+participant ":JeuZeldiablo" as jeu
+participant ":Personnage" as perso
+participant ":Labyrinthe" as laby
 
-[-> J : evoluer(c)
-activate J
-    J -> C : gauche / droite / haut / bas
-    activate C
-    C --> J : boolean
-    deactivate C
-    group Pour la direction detectee (gauche, droite, haut ou bas)
-        J -> P : seDeplacer(direction, laby)
-        activate P
-            P -> P : getPosition()
-            activate P
-            P --> P : int[] {x, y}
-            deactivate P
-            P -> L : etreMur(nx, ny)
-            activate L
-            L --> P : estMur (boolean)
-            deactivate L
-            alt estMur == false (case vide)
-                P -> P : setPosition(nx, ny)
-                activate P
-                P --> P
-                deactivate P
-        deactivate P
-    end
-[<-- J : fin evolution
-deactivate J
+ctrl -> jeu : evoluer(c, l)
+activate jeu
+
+jeu -> perso : seDeplacer("droite", l)
+activate perso
+
+perso -> perso : getPosition()
+activate perso
+return pos
 
 
+perso -> laby : etreLimite(x, y)
+activate laby
+return true
+
+perso -> laby : etreMur(x, y)
+activate laby
+return false
+
+perso -> perso : setPosition(x, y)
+activate perso
+return
+
+perso --> jeu : déplacement validé
+deactivate perso
+
+deactivate jeu
 @enduml
