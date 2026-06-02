@@ -38,7 +38,8 @@ public class JeuZeldiablo implements Jeu {
 
     @Override
     public boolean etreFini() {
-        return false;
+        int[] pos = this.perso.getPosition();
+        return this.l.etreCaseFin(pos[0], pos[1]);
     }
 
     public Labyrinthe getLabyrinthe() {

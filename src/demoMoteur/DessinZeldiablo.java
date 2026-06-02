@@ -13,11 +13,17 @@ public class DessinZeldiablo implements DessinJeu {
     public static final int TAILLE = 50;
     JeuZeldiablo jeu;
     private BufferedImage imgMur;
+    private BufferedImage imgFin;
 
     public DessinZeldiablo(JeuZeldiablo j){
         this.jeu=j;
         try {
             this.imgMur = ImageIO.read(new File("Ressource/mur.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            this.imgFin = ImageIO.read(new File("Ressource/Fin.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -39,6 +45,7 @@ public class DessinZeldiablo implements DessinJeu {
                 }
             }
         }
+        g.drawImage(imgMur, x * TAILLE, y * TAILLE, TAILLE, TAILLE, null);
         
         // Dessiner le personnage
         int[] pos = jeu.perso.getPosition();

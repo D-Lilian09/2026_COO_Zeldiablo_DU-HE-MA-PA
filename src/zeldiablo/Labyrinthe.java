@@ -11,6 +11,9 @@ public class Labyrinthe {
     private boolean[][] murs;
     private int largeur;
     private int hauteur;
+    private int xFin;
+    private int yFin;
+   
 
     public Labyrinthe(int largeur, int hauteur) {
         this.largeur = largeur;
@@ -38,6 +41,10 @@ public class Labyrinthe {
             for (int x = 0; x < largeur; x++) {
                 char c = lignes.get(y).charAt(x);
                 laby.murs[x][y] = (c == '#'); // true si mur, false sinon
+                if (c == '@') {
+                    laby.xFin = x;
+                    laby.yFin = y;
+                }
             }
         }
 
@@ -61,6 +68,10 @@ public class Labyrinthe {
 
     public int getHauteur() {
         return this.hauteur / 50;
+    }
+
+    public boolean etreCaseFin(int x, int y) {
+        return (x == this.xFin && y == this.yFin);
     }
 
 
