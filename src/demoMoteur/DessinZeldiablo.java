@@ -42,10 +42,16 @@ public class DessinZeldiablo implements DessinJeu {
                         g.setColor(Color.GRAY);
                         g.fillRect(x * TAILLE, y * TAILLE, TAILLE, TAILLE);
                     }
+                } else if (jeu.l.etreCaseFin(x, y)) {
+                    if (imgFin != null) {
+                        g.drawImage(imgFin, x * TAILLE, y * TAILLE, TAILLE, TAILLE, null);
+                    } else {
+                        g.setColor(Color.GREEN);
+                        g.fillRect(x * TAILLE, y * TAILLE, TAILLE, TAILLE);
+                    }
                 }
             }
         }
-        g.drawImage(imgMur, x * TAILLE, y * TAILLE, TAILLE, TAILLE, null);
         
         // Dessiner le personnage
         int[] pos = jeu.perso.getPosition();
