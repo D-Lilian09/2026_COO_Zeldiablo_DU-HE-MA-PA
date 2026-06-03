@@ -6,6 +6,7 @@ import zeldiablo.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Timer;
 
 /**
  * Classe principale qui gère la logique du jeu Zeldiablo.
@@ -27,6 +28,9 @@ public class JeuZeldiablo implements Jeu {
      * La liste regroupant tous les ennemis présents sur la carte.
      */
     ArrayList<Ennemie> ennemies;
+    long debutC ;
+    long finC ;
+    long duree ;
 
     /**
      * Constructeur du jeu.
@@ -68,6 +72,8 @@ public class JeuZeldiablo implements Jeu {
      * @param l Le labyrinthe actuel (non utilisé directement dans la méthode, mais requis par l'interface).
      */
     public void evoluer (Commande c, Labyrinthe l){
+        debutC = System.nanoTime();
+
         if (c.gauche)
             this.perso.seDeplacer("gauche",this.l);
         if (c.droite)
@@ -79,20 +85,28 @@ public class JeuZeldiablo implements Jeu {
 
         if (perso.estMort(ennemies))
             perso.setPosition(perso.getPositionRespawn()[0],perso.getPositionRespawn()[1]);
-        // Déplacement des ennemis horizontaux
+
         for (Ennemie e : this.ennemies) {
             e.finPaterne();
             e.seDeplacer();
         }
 
-        // Déplacement des ennemis verticaux
-        //for (Ennemie e : this.ennemiesV) {
-        //    e.finPaterne();
-        //    e.seDeplacer();
-        //}
-        if (perso.estMort(ennemies))
-            perso.setPosition(perso.getPositionRespawn()[0],perso.getPositionRespawn()[1]);
 
+        if (perso.estMort(ennemies)) {
+            perso.setPosition(perso.getPositionRespawn()[0], perso.getPositionRespawn()[1]);
+        }
+
+        if (etreFini()) {
+
+        }
+        System.out.println(debutC);
+        System.out.println(finC);
+        System.out.println(duree);
+
+    }
+
+    public long getTemps() {
+        return (System.currentTimeMillis() - debutC) / 1000; // en secondes
     }
 
     /**
@@ -103,6 +117,7 @@ public class JeuZeldiablo implements Jeu {
     public boolean etreFini() {
         int[] pos = this.perso.getPosition();
         return (this.l.etreCaseFin(pos[0], pos[1]));
+
     }
 
     /**
