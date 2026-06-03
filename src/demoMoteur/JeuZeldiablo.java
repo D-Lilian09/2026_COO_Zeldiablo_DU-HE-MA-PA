@@ -7,13 +7,32 @@ import zeldiablo.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Classe principale qui gère la logique du jeu Zeldiablo.
+ * Elle contient la carte (le labyrinthe), le joueur, et tous les ennemis.
+ */
 public class JeuZeldiablo implements Jeu {
+
+    /**
+     * Le personnage principal contrôlé par le joueur.
+     */
     Personnage perso;
+
+    /**
+     * La carte du niveau actuel.
+     */
     Labyrinthe l;
+
+    /**
+     * La liste regroupant tous les ennemis présents sur la carte.
+     */
     ArrayList<Ennemie> ennemies;
 
-
-
+    /**
+     * Constructeur du jeu.
+     * Prépare la partie : charge le fichier du labyrinthe, place le personnage
+     * à son point de départ, et positionne les différents ennemis.
+     */
     public JeuZeldiablo() {
         try {
             this.l = Labyrinthe.chargerFichier("Ressource/labyrinthe1.txt");
@@ -40,6 +59,14 @@ public class JeuZeldiablo implements Jeu {
         ennemies.add(e4);
     }
 
+    /**
+     * Met à jour le jeu à chaque instant (chaque "tic").
+     * Cette méthode déplace le personnage selon les touches appuyées,
+     * gère les déplacements automatiques des ennemis, et vérifie si le joueur meurt (collision).
+     *
+     * @param c Les commandes du joueur (touches directionnelles appuyées).
+     * @param l Le labyrinthe actuel (non utilisé directement dans la méthode, mais requis par l'interface).
+     */
     public void evoluer (Commande c, Labyrinthe l){
         if (c.gauche)
             this.perso.seDeplacer("gauche",this.l);
@@ -68,15 +95,30 @@ public class JeuZeldiablo implements Jeu {
 
     }
 
+    /**
+     * Vérifie si la partie est gagnée.
+     *
+     * @return true si le personnage a atteint la case de fin, false sinon.
+     */
     public boolean etreFini() {
         int[] pos = this.perso.getPosition();
         return (this.l.etreCaseFin(pos[0], pos[1]));
     }
 
+    /**
+     * Permet de récupérer la carte du jeu en cours.
+     *
+     * @return Le labyrinthe actuel.
+     */
     public Labyrinthe getLabyrinthe() {
         return this.l;
     }
 
+    /**
+     * Permet de récupérer la liste de tous les ennemis.
+     *
+     * @return La liste des ennemis.
+     */
     public ArrayList<Ennemie> getEnnemies() {
         return this.ennemies;
     }
