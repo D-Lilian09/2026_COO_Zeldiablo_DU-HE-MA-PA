@@ -9,7 +9,6 @@ import zeldiablo.Personnage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PersonnageTest {
@@ -20,14 +19,14 @@ class PersonnageTest {
     @BeforeEach
     void setUp() throws IOException {
         laby = Labyrinthe.chargerFichier("Ressource/labyrinthe1.txt");
-        perso = new Personnage(1, 1);
+        perso = new Personnage(12, 4);
     }
 
     @Test
     void testPositionRespawnInitiale() {
         int[] respawn = perso.getPositionRespawn();
-        assertEquals(1, respawn[0]);
-        assertEquals(1, respawn[1]);
+        assertEquals(12, respawn[0]);
+        assertEquals(4, respawn[1]);
     }
 
     @Test
@@ -36,42 +35,41 @@ class PersonnageTest {
         assertArrayEquals(new int[]{3, 4}, perso.getPosition());
     }
 
-
     @Test
-    void testDeplacementHaut() {//test pour voir si on peut aller a haut
+    void testDeplacementHaut() { //test pour voir si on peut aller en haut
         perso.seDeplacer("haut", laby);
-        assertArrayEquals(new int[]{1, 0}, perso.getPosition());
+        assertArrayEquals(new int[]{12, 4}, perso.getPosition());
     }
 
     @Test
     void testDeplacementBas() { //test pour voir si on peut aller en bas
-        perso.seDeplacer("bas", laby);
-        assertArrayEquals(new int[]{1, 2}, perso.getPosition());
+        perso.seDeplacer("bas", laby);      // (12,4) -> (12,5)
+        assertArrayEquals(new int[]{12, 5}, perso.getPosition());
     }
 
     @Test
-    void testDeplacementDroite() {//test pour voir si on peut aller a Droite
+    void testDeplacementDroite() { //test pour voir si on peut aller a droite
         perso.seDeplacer("droite", laby);
-        assertArrayEquals(new int[]{2, 1}, perso.getPosition());
+        assertArrayEquals(new int[]{13, 4}, perso.getPosition());
     }
 
     @Test
-    void testDeplacementGauche() {  //test pour voir si on peut aller a Gauche
-        perso.seDeplacer("gauche", laby);
-        assertArrayEquals(new int[]{0, 1}, perso.getPosition());
+    void testDeplacementGauche() { //test pour voir si on peut aller a gauche
+        perso.seDeplacer("gauche", laby); 
+        assertArrayEquals(new int[]{11, 4}, perso.getPosition());
     }
 
     @Test
-    void testDeplacementBloqueParMur() { //test pour voir si les deplacements sont bloqués par les murs
-        perso.setPosition(2, 3);
+    void testDeplacementBloqueParMur() { //test pour voir si les deplacements sont bloques par les murs
+        perso.setPosition(1, 1);
         perso.seDeplacer("haut", laby);
-        assertArrayEquals(new int[]{2, 3}, perso.getPosition());
+        assertArrayEquals(new int[]{1, 1}, perso.getPosition());
     }
 
     @Test
-    void testEstMortEnnemiSurPersonnage() { // test pour voir si le personnage est mort sur un ennemi
+    void testEstMortEnnemiSurPersonnage() { //test pour voir si le personnage meurt sur un ennemi
         ArrayList<Ennemie> ennemis = new ArrayList<>();
-        ennemis.add(new Ennemie(1, 1, 0, 0, 0, 0));
+        ennemis.add(new Ennemie(12, 4, 0, 0, 0, 0));
         assertTrue(perso.estMort(ennemis));
     }
 }
