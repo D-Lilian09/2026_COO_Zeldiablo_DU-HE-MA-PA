@@ -7,11 +7,11 @@
     - critère 2 touche pressé
   - responsables : [...]
 
-- fonctionnalité 2 : retirer hp
-  - descriptif texte : retirer les hp du personnage
+- fonctionnalité 2 : connecter moteur
+  - descriptif texte : connecter le moteur avec notre jeu
   - critères de validation :
-    - critère 1 le personnage est en vie
-    - critère 2 l'evenement qui retire les hp est passé
+    - critère 1 on a un jeu
+    - critère 2 pas de probleme lors du demarage
   - responsables : [...]
 
 [....]
