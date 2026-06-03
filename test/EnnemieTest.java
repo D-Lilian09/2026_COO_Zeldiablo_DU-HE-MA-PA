@@ -28,11 +28,11 @@ public class EnnemieTest {
         assertEquals(2, pos[1], "y ne change pas");
 
         ennemie.setPosition(5, 2);
-        assertTrue(ennemie.finPaterne(), "doit faire demi-tour");
+        assertTrue(ennemie.finPaterne(), "doit faire demi tour");
 
         ennemie.seDeplacerH();
         pos = ennemie.getPosition();
-        assertEquals(4, pos[0], "L'ennemi recule en X");
+        assertEquals(4, pos[0], "l'ennemi recule en x");
     }
 
     @Test
@@ -41,14 +41,14 @@ public class EnnemieTest {
 
         ennemieV.seDeplacerV();
         int[] pos = ennemieV.getPosition();
-        assertEquals(2, pos[0], "X ne change pas");
-        assertEquals(3, pos[1], "L'ennemi descend en Y");
+        assertEquals(2, pos[0], "x ne change pas");
+        assertEquals(3, pos[1], "ennemi descend en y");
 
         ennemieV.setPosition(2, 5);
         assertTrue(ennemieV.finPaterne());
         ennemieV.seDeplacerV();
         pos = ennemieV.getPosition();
-        assertEquals(4, pos[1], "L'ennemi remonte en Y");
+        assertEquals(4, pos[1], "ennemi remonte en y");
     }
 
     @Test
@@ -56,10 +56,10 @@ public class EnnemieTest {
         assertFalse(ennemie.finPaterne());
 
         ennemie.setPosition(5, 2);
-        assertTrue(ennemie.finPaterne(), "Fin de l'aller");
+        assertTrue(ennemie.finPaterne(), "fin de l'aller");
 
         ennemie.setPosition(2, 2);
-        assertTrue(ennemie.finPaterne(), "Fin du retour");
+        assertTrue(ennemie.finPaterne(), "fin du retour");
     }
 
     @Test
@@ -71,10 +71,10 @@ public class EnnemieTest {
         ennemie.reset();
         int[] pos = ennemie.getPosition();
 
-        assertEquals(2, pos[0], "Retour au X de départ");
-        assertEquals(2, pos[1], "Retour au Y de départ");
+        assertEquals(2, pos[0], "retour au x départ");
+        assertEquals(2, pos[1], "retour au y départ");
 
         ennemie.seDeplacerH();
-        assertEquals(3, ennemie.getPosition()[0], "Repart vers la droite");
+        assertEquals(3, ennemie.getPosition()[0], "repart vers la droite");
     }
 }
