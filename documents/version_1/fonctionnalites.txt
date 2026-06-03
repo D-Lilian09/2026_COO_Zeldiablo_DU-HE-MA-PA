@@ -5,17 +5,18 @@
   - critères de validation :
     - critère 1 case vide
     - critère 2 touche pressé
-  - responsables : [...]
+  - responsables : Lilian et Théo
 
 - fonctionnalité 2 : connecter moteur
   - descriptif texte : connecter le moteur avec notre jeu
   - critères de validation :
     - critère 1 on a un jeu
     - critère 2 pas de probleme lors du demarage
-  - responsables : [...]
+  - responsables : Kevin et Kayis
 
 [....]
 
 # Bilan
 
 - Quelles fonctionnalités est validée ?
+Toutes les fonctionnalités sont valide

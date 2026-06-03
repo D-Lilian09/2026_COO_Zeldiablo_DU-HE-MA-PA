@@ -9,15 +9,33 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * classe responsable de l'affichage graphique du jeu Zeldiablo
+ * elle implémente l'interface DessinJeu
+ */
 public class DessinZeldiablo implements DessinJeu {
 
+    /** la taille d'une case en pixels sur l'écran */
     public static final int TAILLE = 50;
+
+    /** la taille d'un déplacement */
     public static final int SAUT = 25;
 
+    /** le jeu en cours que l'on doit dessiner */
     JeuZeldiablo jeu;
+
+    /** l'image représentant un mur */
     private BufferedImage imgMur;
+
+    /** l'image représentant la case de fin */
     private BufferedImage imgFin;
 
+    /**
+     * constructeur de la classe
+     * initialise le jeu et charge les image depuis le dossier "Ressource"
+     *
+     * @param j le jeu Zeldiablo à afficher
+     */
     public DessinZeldiablo(JeuZeldiablo j){
         this.jeu=j;
         try {
@@ -32,6 +50,12 @@ public class DessinZeldiablo implements DessinJeu {
         }
     }
 
+    /**
+     * méthode principale qui dessine tous les éléments du jeu sur l'écran
+     * elle appelle les autre méthodes pour dessiner le labyrinthe, les ennemis, le héros, le temps et le compteur de morts
+     *
+     * @param image l'image sur laquelle tout va être dessiné.
+     */
     @Override
     public void dessiner(BufferedImage image) {
         Graphics2D g = (Graphics2D) image.getGraphics();
@@ -49,9 +73,7 @@ public class DessinZeldiablo implements DessinJeu {
         //Dessiner le Temps
         dessinerTemps(g);
 
-
         //Dessiner les morts
-
         int m = jeu.getMort();
         String texte = "Morts : " + m;
         g.setColor(Color.WHITE);
@@ -61,6 +83,11 @@ public class DessinZeldiablo implements DessinJeu {
         g.drawString(texte, image.getWidth() - largeurTexte - 10, TAILLE - 15);
     }
 
+    /**
+     * dessine le chronomètre en haut à gauche de l'écran.
+     *
+     * @param g l'outil graphique utilisé pour dessiner.
+     */
     private void dessinerTemps(Graphics2D g) {
         long secondes = jeu.getTemps();
         g.setColor(Color.WHITE);
@@ -68,10 +95,12 @@ public class DessinZeldiablo implements DessinJeu {
         g.drawString(secondes + "s", 10, TAILLE - 15);
     }
 
-
+    /**
+     * dessine tous les ennemis présents dans le jeu sous forme de carrés rouges
+     *
+     * @param g l'outil graphique utilisé pour dessiner
+     */
     private void dessinerEnnemis(Graphics g) {
-
-
         g.setColor(Color.RED);
         for (Ennemie e : jeu.getEnnemies()) {
             int[] posE = e.getPosition();
@@ -79,6 +108,11 @@ public class DessinZeldiablo implements DessinJeu {
         }
     }
 
+    /**
+     * dessine le labyrinthe : les murs, la case d'arrivée et les cases vides.
+     *
+     * @param g l'outil graphique utilisé pour dessiner
+     */
     private void dessinerCarte(Graphics g) {
         for (int y = 0; y < jeu.l.getHauteur(); y++) {
             for (int x = 0; x < jeu.l.getLargeur(); x++) {

@@ -19,4 +19,4 @@
 # Bilan
 
 - Quelles fonctionnalités est validée ?
-les 2
+Toutes les fonctionnalités sont valide
