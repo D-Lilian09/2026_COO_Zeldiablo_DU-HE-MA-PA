@@ -1,20 +1,34 @@
 # Fonctionnalités prévues version
 
-- fonctionnalité 1 :
-  - descriptif texte : Si case rouge touché, le héro respawn et rejoue
+        - fonctionnalité 1 : classe Entité
+  - descriptif texte : Ajout de la classe Entité, ou la classe Personnage.java et Ennemie.java hérite d’elle
   - critères de validation :
-    - critère 1: un contact avec le carré rouge nous fait respawn
+    - critère 1: Passer les attributs de ennemie en protected
   - responsables : Kayis et Kevin
 
 
-  - fonctionnalité 2 :
-    - descriptif texte : Fin du jeu : le héro arrive sur la case de fin
+         - fonctionnalité 2 : Modification méthode SeDéplacer
+    - descriptif texte : Modification de la méthode SeDéplacer et création de plusieurs petites classe pour chaque type de déplacement voulu
     - critères de validation :
-      - critère 1: Le héro doit bien arriver sur la case de fin défini (case avec le drapeau)
+      - critère 1: les classes type de déplacement sont indépendantes les unes des autres
     - responsables : Lilian et théo
 
 
-[....]
+         - fonctionnalité 3 : Compteur de mort
+      - descriptif texte : un compteur est affiché mon montrer notre nombre de mort
+      - critères de validation :
+      - critère 1: à chaque mort, le compteur ajoute +1
+      - responsables : Lilian et théo
+
+
+            - fonctionnalité 4 : chronomètre
+        - descriptif texte : un chronomètre affiche le temps passé sur le niveau en temps réel
+        - critères de validation :
+        - critère 1: à chaque mort, le compteur doit se réinitialiser et recommencer lors de l'apparition au point de spawn
+        - responsables : Kevin et Kayis
+
+
+[....
 
 # Bilan
 

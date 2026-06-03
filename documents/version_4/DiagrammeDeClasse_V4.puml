@@ -1,0 +1,83 @@
+@startuml
+
+class Personnage{
+
+    - x : int
+    - y : int
+
+    + Personnage(int x, int y)
+    + getPositionRespawn():int[]
+    + getPosition() : int[]
+    + setPosition()
+    + seDeplacer()
+    + estMort(ArrayList<Ennemie> e)
+}
+
+class Labyrinthe {
+    - largeur : int
+    - hauteur : int
+    - mur boolean[][]
+    - xFin : int
+    - yFin : int
+
+    + Labyrinthe(int x, int y)
+    {static} + chargerFichier(String chemin): Labyrinthe
+    + etreLimite(int x, int y)
+    + etreMur(int x, int y)
+    + getLargeur()
+    + getHauteur()
+    + etreCaseFin(int x, int y):boolean
+}
+class JeuZeldiablo{
+
+    + jeuZeldiablo()
+    + evoluer(Commande c, Labyrinthe l)
+    + etreFini() : boolean
+    + getLabyrinthe() : Labyrinthe
+    + getEnnemie () : Ennemie
+}
+
+class Ennemie{
+    # x : int
+    # y : int
+    # xFin : int
+    # yFin : int
+    # allerRetour :boolean
+
+    + Ennemie(int x, int y, int xf,int yf, int xd, int yd)
+    + seDeplacer(Labyrinthe l)
+    + finPaterne() : boolean
+    + reset()
+
+}
+
+class Entite{
+    # x : int
+    # y : int
+
+    + Entite(int x, int y)
+    + getPosition() : int[]
+    + setPosition() :
+}
+
+class EnnemieH{
+
+    + EnnemieH(int x, int y)
+    + seDeplacer(Labyrinthe l)
+}
+
+class EnnemieV{
+
+    + EnnemieV(int x, int y)
+    + seDeplacer(Labyrinthe l)
+}
+
+JeuZeldiablo"1" --> "1" Personnage : - perso
+JeuZeldiablo"1" --> "*" Ennemie : - ennemie
+JeuZeldiablo"1" --> "1" Labyrinthe : - l
+EnnemieH --|>   Ennemie
+EnnemieV --|>   Ennemie
+Personnage --|> Entite
+Ennemie --|> Entite
+
+@enduml
