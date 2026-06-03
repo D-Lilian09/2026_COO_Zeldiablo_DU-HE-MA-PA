@@ -17,7 +17,7 @@ public class EnnemieV extends Ennemie {
 
     public void finPaterne() {
         int[] pos = getPosition();
-        if ((allerRetour && pos[1] >= yFin) || (!allerRetour && pos[1] <= xFin)) {
+        if ((allerRetour && pos[1] >= yFin) || (!allerRetour && pos[1] <= yDeb)) {
             this.allerRetour = !this.allerRetour;
         }
     }

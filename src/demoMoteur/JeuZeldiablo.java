@@ -28,9 +28,10 @@ public class JeuZeldiablo implements Jeu {
      * La liste regroupant tous les ennemis présents sur la carte.
      */
     ArrayList<Ennemie> ennemies;
-    long debutC ;
-    long finC ;
-    long duree ;
+
+    private long tempsDebut;
+
+    private int nbMort;
 
     /**
      * Constructeur du jeu.
@@ -61,6 +62,8 @@ public class JeuZeldiablo implements Jeu {
         // Ennemis verticaux
         EnnemieV e4 = new EnnemieV(4, 3, 4, 10, 4, 3);
         ennemies.add(e4);
+
+        this.tempsDebut = System.currentTimeMillis();
     }
 
     /**
@@ -72,7 +75,7 @@ public class JeuZeldiablo implements Jeu {
      * @param l Le labyrinthe actuel (non utilisé directement dans la méthode, mais requis par l'interface).
      */
     public void evoluer (Commande c, Labyrinthe l){
-        debutC = System.nanoTime();
+
 
         if (c.gauche)
             this.perso.seDeplacer("gauche",this.l);
@@ -83,8 +86,11 @@ public class JeuZeldiablo implements Jeu {
         if (c.bas)
             this.perso.seDeplacer("bas",this.l);
 
-        if (perso.estMort(ennemies))
-            perso.setPosition(perso.getPositionRespawn()[0],perso.getPositionRespawn()[1]);
+        if (perso.estMort(ennemies)) {
+            perso.setPosition(perso.getPositionRespawn()[0], perso.getPositionRespawn()[1]);
+            nbMort++;
+            this.tempsDebut = System.currentTimeMillis();
+        }
 
         for (Ennemie e : this.ennemies) {
             e.finPaterne();
@@ -94,19 +100,21 @@ public class JeuZeldiablo implements Jeu {
 
         if (perso.estMort(ennemies)) {
             perso.setPosition(perso.getPositionRespawn()[0], perso.getPositionRespawn()[1]);
+            nbMort++;
+            this.tempsDebut = System.currentTimeMillis();
         }
 
         if (etreFini()) {
 
         }
-        System.out.println(debutC);
-        System.out.println(finC);
-        System.out.println(duree);
-
     }
 
     public long getTemps() {
-        return (System.currentTimeMillis() - debutC) / 1000; // en secondes
+        return (System.currentTimeMillis() - tempsDebut) / 1000;
+    }
+
+    public int getMort() {
+        return nbMort;
     }
 
     /**
@@ -128,6 +136,8 @@ public class JeuZeldiablo implements Jeu {
     public Labyrinthe getLabyrinthe() {
         return this.l;
     }
+
+
 
     /**
      * Permet de récupérer la liste de tous les ennemis.
