@@ -30,11 +30,16 @@ class Labyrinthe {
 }
 class JeuZeldiablo{
 
+    - tempsDebut : long
+    - nbMort : int
+
     + jeuZeldiablo()
     + evoluer(Commande c, Labyrinthe l)
     + etreFini() : boolean
     + getLabyrinthe() : Labyrinthe
     + getEnnemie () : Ennemie
+    + getTemps() : long
+    + getMort() : int
 }
 
 class Ennemie{
