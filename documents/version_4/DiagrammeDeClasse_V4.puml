@@ -45,9 +45,9 @@ class Ennemie{
     # allerRetour :boolean
 
     + Ennemie(int x, int y, int xf,int yf, int xd, int yd)
-    + seDeplacer(Labyrinthe l)
-    + finPaterne() : boolean
+    + seDeplacer()
     + reset()
+    + finPaterne()
 
 }
 
@@ -63,13 +63,15 @@ class Entite{
 class EnnemieH{
 
     + EnnemieH(int x, int y)
-    + seDeplacer(Labyrinthe l)
+    + seDeplacer()
+    + finPaterne() : boolean
 }
 
 class EnnemieV{
 
     + EnnemieV(int x, int y)
-    + seDeplacer(Labyrinthe l)
+    + seDeplacer()
+    + finPaterne() : boolean
 }
 
 JeuZeldiablo"1" --> "1" Personnage : - perso
