@@ -4,14 +4,14 @@
   - descriptif texte : Si case rouge touché, le héro respawn et rejoue
   - critères de validation :
     - critère 1: un contact avec le carré rouge nous fait respawn
-  - responsables : Kayis et Kevin
+  - responsables : Lilian et théo
 
 
   - fonctionnalité 2 :
     - descriptif texte : Fin du jeu : le héro arrive sur la case de fin
     - critères de validation :
       - critère 1: Le héro doit bien arriver sur la case de fin défini (case avec le drapeau)
-    - responsables : Lilian et théo
+    - responsables : Kayis et Kevin
 
 
 [....]
