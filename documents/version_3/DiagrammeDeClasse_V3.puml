@@ -30,6 +30,7 @@ class JeuZeldiablo{
     + evoluer(Commande c, Labyrinthe l)
     + etreFini() : boolean
     + getLabyrinthe() : Labyrinthe
+    + getEnnemie () : Ennemie
 }
 
 class Ennemie{
@@ -37,8 +38,7 @@ class Ennemie{
     - y : int
     - xFin : int
     - yFin : int
-    - xDeb : int
-    - yDeb : int
+    - allerRetour :boolean
 
     + Ennemie(int x, int y, int xf,int yf, int xd, int yd)
     + seDeplacerH()
@@ -50,6 +50,7 @@ class Ennemie{
 
 
 JeuZeldiablo"1" -> "1" Personnage : - perso
+JeuZeldiablo"*" -> "1" Ennemie : - ennemie
 JeuZeldiablo"1" -> "1" Labyrinthe : - l
 Personnage"1 " ->  "1" Ennemie
 
