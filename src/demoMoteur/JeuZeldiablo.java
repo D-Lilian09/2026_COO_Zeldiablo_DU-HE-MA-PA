@@ -2,9 +2,7 @@ package demoMoteur;
 
 import moteurJeu.Commande;
 import moteurJeu.Jeu;
-import zeldiablo.Ennemie;
-import zeldiablo.Labyrinthe;
-import zeldiablo.Personnage;
+import zeldiablo.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,8 +11,6 @@ public class JeuZeldiablo implements Jeu {
     Personnage perso;
     Labyrinthe l;
     ArrayList<Ennemie> ennemies;
-    ArrayList<Ennemie> ennemiesH; // Ennemis horizontaux
-    ArrayList<Ennemie> ennemiesV; // Ennemis verticaux
 
 
 
@@ -26,25 +22,21 @@ public class JeuZeldiablo implements Jeu {
         }
         this.perso = new Personnage(8, 14); //spawn du perso
         this.ennemies = new ArrayList<Ennemie>();
-        this.ennemiesH = new ArrayList<Ennemie>();
-        this.ennemiesV = new ArrayList<Ennemie>();
 
         // Ennemis horizontaux
-        Ennemie e1 = new Ennemie(1, 1, 28, 1, 1, 1);
-        ennemiesH.add(e1);
+        EnnemieH e1 = new EnnemieH(1, 1, 28, 1, 1, 1);
         ennemies.add(e1);
 
-        Ennemie e2 = new Ennemie(11, 8, 19, 8, 11, 8);
-        ennemiesH.add(e2);
+
+        EnnemieH e2 = new EnnemieH(11, 8, 19, 8, 11, 8);
         ennemies.add(e2);
 
-        Ennemie e3 = new Ennemie(10, 14, 22, 14, 10, 14);
-        ennemiesH.add(e3);
+        EnnemieH e3 = new EnnemieH(10, 14, 22, 14, 10, 14);
+
         ennemies.add(e3);
 
         // Ennemis verticaux
-        Ennemie e4 = new Ennemie(4, 3, 4, 10, 4, 3);
-        ennemiesV.add(e4);
+        EnnemieV e4 = new EnnemieV(4, 3, 4, 10, 4, 3);
         ennemies.add(e4);
     }
 
@@ -61,16 +53,16 @@ public class JeuZeldiablo implements Jeu {
         if (perso.estMort(ennemies))
             perso.setPosition(perso.getPositionRespawn()[0],perso.getPositionRespawn()[1]);
         // Déplacement des ennemis horizontaux
-        for (Ennemie e : this.ennemiesH) {
+        for (Ennemie e : this.ennemies) {
             e.finPaterne();
-            e.seDeplacerH();
+            e.seDeplacer();
         }
 
         // Déplacement des ennemis verticaux
-        for (Ennemie e : this.ennemiesV) {
-            e.finPaterne();
-            e.seDeplacerV();
-        }
+        //for (Ennemie e : this.ennemiesV) {
+        //    e.finPaterne();
+        //    e.seDeplacer();
+        //}
         if (perso.estMort(ennemies))
             perso.setPosition(perso.getPositionRespawn()[0],perso.getPositionRespawn()[1]);
 

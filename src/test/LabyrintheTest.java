@@ -1,6 +1,8 @@
 package test;
 
 import org.junit.jupiter.api.Test;
+import zeldiablo.Labyrinthe;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
