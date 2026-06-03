@@ -1,5 +1,19 @@
 @startuml
 
+title estMort() — le perso meurt si il entre en collision avec un ennemie
 
+participant "jeu :JeuZeldiablo" as jeu
+participant "perso :Personnage" as perso
+participant "laby :Labyrinthe" as laby
+participant "e: Ennemie" as ennemie
+
+jeu -> perso : estMort(ArrayList<Ennemie> e)
+activate perso
+perso -> ennemie : size()
+activate ennemie
+ennemie --> perso : int l
+deactivate ennemie
+perso --> jeu : true
+deactivate perso
 
 @enduml

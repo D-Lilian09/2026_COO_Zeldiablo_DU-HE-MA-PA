@@ -38,19 +38,21 @@ class Ennemie{
     - y : int
     - xFin : int
     - yFin : int
-    - allerRetour :boolean
+    - allerRetour : boolean
+
 
     + Ennemie(int x, int y, int xf,int yf, int xd, int yd)
     + seDeplacerH()
     + seDeplacerV()
     + finPaterne() : boolean
-    + reset()
+    + reset() :
 
 }
 
-
+JeuZeldiablo"1" --> "*" Ennemie : - ennemieV
+JeuZeldiablo"1" --> "*" Ennemie : - ennemieH
 JeuZeldiablo"1" -> "1" Personnage : - perso
-JeuZeldiablo"*" -> "1" Ennemie : - ennemie
+JeuZeldiablo"1" --> "*" Ennemie : - ennemie
 JeuZeldiablo"1" -> "1" Labyrinthe : - l
 Personnage"1 " ->  "1" Ennemie
 
