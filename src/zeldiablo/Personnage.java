@@ -1,12 +1,27 @@
 package zeldiablo;
 
+import java.util.ArrayList;
+
 public  class Personnage {
     private int x;
     private int y;
+    private int xd;
+    private int yd;
+
 
     public Personnage(int x, int y){
         this.x = x;
         this.y = y;
+        this.xd = x;
+        this.yd = y;
+    }
+
+    public int[] getPositionRespawn(){
+        int[] position = new int[2];
+        position [0] = this.xd;
+        position [1] = this.yd;
+
+        return position;
     }
 
     public int[] getPosition(){
@@ -48,5 +63,15 @@ public  class Personnage {
                 this.setPosition(pos[0] , pos[1]);
             }
         }
+    }
+
+    public boolean estMort(ArrayList<Ennemie> e) {
+        int l = e.size();
+        for (int i = 0; i < l; i++) {
+            if (e.get(i).getPosition()[0] == this.x && e.get(i).getPosition()[1] == this.y) {
+                return true;
+            }
+        }
+        return false;
     }
 }

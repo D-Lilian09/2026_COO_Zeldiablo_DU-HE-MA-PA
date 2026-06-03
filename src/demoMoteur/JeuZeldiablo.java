@@ -58,6 +58,8 @@ public class JeuZeldiablo implements Jeu {
         if (c.bas)
             this.perso.seDeplacer("bas",this.l);
 
+        if (perso.estMort(ennemies))
+            perso.setPosition(perso.getPositionRespawn()[0],perso.getPositionRespawn()[1]);
         // Déplacement des ennemis horizontaux
         for (Ennemie e : this.ennemiesH) {
             e.finPaterne();
@@ -69,11 +71,14 @@ public class JeuZeldiablo implements Jeu {
             e.finPaterne();
             e.seDeplacerV();
         }
+        if (perso.estMort(ennemies))
+            perso.setPosition(perso.getPositionRespawn()[0],perso.getPositionRespawn()[1]);
+
     }
 
     public boolean etreFini() {
         int[] pos = this.perso.getPosition();
-        return this.l.etreCaseFin(pos[0], pos[1]);
+        return (this.l.etreCaseFin(pos[0], pos[1]));
     }
 
     public Labyrinthe getLabyrinthe() {
