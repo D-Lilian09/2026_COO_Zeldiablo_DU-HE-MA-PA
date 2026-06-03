@@ -1,7 +1,7 @@
 package zeldiablo;
 
 
-public class Ennemie extends Personnage {
+public class Ennemie extends Entite {
 
     private int xFin;
     private int yFin;

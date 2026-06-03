@@ -2,16 +2,13 @@ package zeldiablo;
 
 import java.util.ArrayList;
 
-public  class Personnage {
-    private int x;
-    private int y;
+public  class Personnage extends Entite{
     private int xd;
     private int yd;
 
 
     public Personnage(int x, int y){
-        this.x = x;
-        this.y = y;
+        super(x,y);
         this.xd = x;
         this.yd = y;
     }
@@ -24,18 +21,6 @@ public  class Personnage {
         return position;
     }
 
-    public int[] getPosition(){
-        int[] position = new int[2];
-        position [0] = this.x;
-        position [1] = this.y;
-
-        return position;
-    }
-
-    public void setPosition(int x, int y){
-        this.x = x;
-        this.y = y;
-    }
 
     public void seDeplacer(String x,Labyrinthe l){
         int[] pos = this.getPosition();

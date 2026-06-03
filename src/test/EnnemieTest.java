@@ -1,4 +1,4 @@
-package zeldiablo;
+package test;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,23 +16,23 @@ public class EnnemieTest {
     @Test
     public void testInitialisation() {
         int[] pos = ennemie.getPosition();
-        assertEquals(2, pos[0], "x doit être 2");
-        assertEquals(2, pos[1], "y doit être 2");
+        Assertions.assertEquals(2, pos[0], "x doit être 2");
+        Assertions.assertEquals(2, pos[1], "y doit être 2");
     }
 
     @Test
     public void testSeDeplacerH() {
         ennemie.seDeplacerH();
         int[] pos = ennemie.getPosition();
-        assertEquals(3, pos[0], "l'ennemi avance en x");
-        assertEquals(2, pos[1], "y ne change pas");
+        Assertions.assertEquals(3, pos[0], "l'ennemi avance en x");
+        Assertions.assertEquals(2, pos[1], "y ne change pas");
 
         ennemie.setPosition(5, 2);
         assertTrue(ennemie.finPaterne(), "doit faire demi tour");
 
         ennemie.seDeplacerH();
         pos = ennemie.getPosition();
-        assertEquals(4, pos[0], "l'ennemi recule en x");
+        Assertions.assertEquals(4, pos[0], "l'ennemi recule en x");
     }
 
     @Test
@@ -41,14 +41,14 @@ public class EnnemieTest {
 
         ennemieV.seDeplacerV();
         int[] pos = ennemieV.getPosition();
-        assertEquals(2, pos[0], "x ne change pas");
-        assertEquals(3, pos[1], "ennemi descend en y");
+        Assertions.assertEquals(2, pos[0], "x ne change pas");
+        Assertions.assertEquals(3, pos[1], "ennemi descend en y");
 
         ennemieV.setPosition(2, 5);
         assertTrue(ennemieV.finPaterne());
         ennemieV.seDeplacerV();
         pos = ennemieV.getPosition();
-        assertEquals(4, pos[1], "ennemi remonte en y");
+        Assertions.assertEquals(4, pos[1], "ennemi remonte en y");
     }
 
     @Test
@@ -71,8 +71,8 @@ public class EnnemieTest {
         ennemie.reset();
         int[] pos = ennemie.getPosition();
 
-        assertEquals(2, pos[0], "retour au x départ");
-        assertEquals(2, pos[1], "retour au y départ");
+        Assertions.assertEquals(2, pos[0], "retour au x départ");
+        Assertions.assertEquals(2, pos[1], "retour au y départ");
 
         ennemie.seDeplacerH();
         assertEquals(3, ennemie.getPosition()[0], "repart vers la droite");
