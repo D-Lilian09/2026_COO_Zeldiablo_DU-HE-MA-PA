@@ -12,6 +12,8 @@ import java.io.IOException;
 public class DessinZeldiablo implements DessinJeu {
 
     public static final int TAILLE = 50;
+    public static final int SAUT = 25;
+
     JeuZeldiablo jeu;
     private BufferedImage imgMur;
     private BufferedImage imgFin;

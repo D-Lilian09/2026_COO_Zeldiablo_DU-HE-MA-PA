@@ -7,7 +7,7 @@ public class Ennemie extends Personnage {
     private int yFin;
     private int xDeb;
     private int yDeb;
-    private boolean allerRetour; // true = aller vers fin, false = retour vers deb
+    private boolean allerRetour;
 
 
     public Ennemie(int x, int y, int xf, int yf, int xd, int yd) {
@@ -16,7 +16,7 @@ public class Ennemie extends Personnage {
         this.yFin = yf;
         this.xDeb = xd;
         this.yDeb = yd;
-        this.allerRetour = true; // commence par aller vers la fin
+        this.allerRetour = true;
     }
 
     public void seDeplacerH() {
