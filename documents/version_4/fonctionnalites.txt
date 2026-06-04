@@ -4,7 +4,7 @@
   - descriptif texte : Ajout de la classe Entité, ou la classe Personnage.java et Ennemie.java hérite d’elle
   - critères de validation :
     - critère 1: Passer les attributs de ennemie en protected
-  - responsables : Kayis et Kevin
+  - responsables : Lilian et théo
 
 
          - fonctionnalité 2 : Modification méthode SeDéplacer
@@ -14,11 +14,11 @@
     - responsables : Lilian et théo
 
 
-         - fonctionnalité 3 : Compteur de mort
+         - fonctionnalité 3 : Compteur de mort et Chrono
       - descriptif texte : un compteur est affiché mon montrer notre nombre de mort
       - critères de validation :
       - critère 1: à chaque mort, le compteur ajoute +1
-      - responsables : Lilian et théo
+      - responsables : Kayis et Kevin
 
 
             - fonctionnalité 4 : chronomètre

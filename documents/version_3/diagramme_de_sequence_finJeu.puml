@@ -1,20 +1,23 @@
 @startuml
 title etreFini() — le perso est sur la case de fin
 
-participant ":MoteurGraphique" as moteur
-participant ":JeuZeldiablo" as jeu
-participant ":Personnage" as perso
-participant ":Labyrinthe" as laby
+participant "moteur:MoteurGraphique" as moteur
+participant "jeu:JeuZeldiablo" as jeu
+participant "perso:Personnage" as perso
+participant "laby:Labyrinthe" as laby
 
 moteur -> jeu : etreFini()
 activate jeu
 
 jeu -> perso : getPosition()
+activate perso
 perso --> jeu : pos
+deactivate perso
 
 jeu -> laby : etreCaseFin(x, y)
+activate laby
 laby --> jeu : true
-
+deactivate laby
 jeu --> moteur : true (jeu fini)
 deactivate jeu
 @enduml
