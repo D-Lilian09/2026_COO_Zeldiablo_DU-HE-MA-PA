@@ -104,9 +104,7 @@ public class JeuZeldiablo implements Jeu {
             this.tempsDebut = System.currentTimeMillis();
         }
 
-        if (etreFini()) {
 
-        }
     }
 
     public long getTemps() {
