@@ -8,25 +8,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Timer;
 
-/**
- * Classe principale qui gère la logique du jeu Zeldiablo.
- * Elle contient la carte (le labyrinthe), le joueur, et tous les ennemis.
- */
 public class JeuZeldiablo implements Jeu {
-
-    /**
-     * Le personnage principal contrôlé par le joueur.
-     */
     Personnage perso;
-
-    /**
-     * La carte du niveau actuel.
-     */
     Labyrinthe l;
-
-    /**
-     * La liste regroupant tous les ennemis présents sur la carte.
-     */
     ArrayList<Ennemie> ennemies;
 
     private long tempsDebut;
@@ -34,10 +18,12 @@ public class JeuZeldiablo implements Jeu {
     private int nbMort;
 
     /**
-     * Constructeur du jeu.
-     * Prépare la partie : charge le fichier du labyrinthe, place le personnage
-     * à son point de départ, et positionne les différents ennemis.
+     * constructeur du jeu
+     * ^répare la partie, charge le fichier du labyrinthe et place le personnage au point de spawn défini
+     * et positionne les différents ennemis dans le niveau du jeu
      */
+
+
     public JeuZeldiablo() {
         try {
             this.l = Labyrinthe.chargerFichier("Ressource/labyrinthe1.txt");
@@ -66,14 +52,6 @@ public class JeuZeldiablo implements Jeu {
         this.tempsDebut = System.currentTimeMillis();
     }
 
-    /**
-     * Met à jour le jeu à chaque instant (chaque "tic").
-     * Cette méthode déplace le personnage selon les touches appuyées,
-     * gère les déplacements automatiques des ennemis, et vérifie si le joueur meurt (collision).
-     *
-     * @param c Les commandes du joueur (touches directionnelles appuyées).
-     * @param l Le labyrinthe actuel (non utilisé directement dans la méthode, mais requis par l'interface).
-     */
     public void evoluer (Commande c, Labyrinthe l){
 
 
@@ -115,22 +93,12 @@ public class JeuZeldiablo implements Jeu {
         return nbMort;
     }
 
-    /**
-     * Vérifie si la partie est gagnée.
-     *
-     * @return true si le personnage a atteint la case de fin, false sinon.
-     */
     public boolean etreFini() {
         int[] pos = this.perso.getPosition();
         return (this.l.etreCaseFin(pos[0], pos[1]));
 
     }
 
-    /**
-     * Permet de récupérer la carte du jeu en cours.
-     *
-     * @return Le labyrinthe actuel.
-     */
     public Labyrinthe getLabyrinthe() {
         return this.l;
     }
@@ -138,9 +106,9 @@ public class JeuZeldiablo implements Jeu {
 
 
     /**
-     * Permet de récupérer la liste de tous les ennemis.
+     * permet de récupérer la liste de tous les ennemis du jeu
      *
-     * @return La liste des ennemis.
+     * @return la liste des ennemis
      */
     public ArrayList<Ennemie> getEnnemies() {
         return this.ennemies;
